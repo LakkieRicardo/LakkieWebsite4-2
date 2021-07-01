@@ -106,6 +106,8 @@ window.addEventListener("load", (ev) => {
 
     // Setup bio history plane
 
+    // FIXME plane breaks on resize
+
     const tween = new TimelineLite();
     tween.add(
         TweenLite.to(".airplane", 1, {
@@ -114,7 +116,7 @@ window.addEventListener("load", (ev) => {
                 autoRotate: true,
                 values: [
                     {
-                        x: -window.innerWidth,
+                        x: 0,
                         y: 0
                     },
                     {
@@ -161,5 +163,19 @@ window.addEventListener("load", (ev) => {
 
     if (isMobile) {
         document.querySelector("nav").style.display = "none";
+    } else {
+        // Setup minimize functionality
+        const navContainer = document.querySelector("nav > div");
+        const navButton = document.querySelector("nav > button");
+        navButton.addEventListener("click", () => {
+            if (navButton.classList.contains("nav-btn--minimized")) {
+                navButton.classList.remove("nav-btn--minimized");
+                navContainer.style.display = "block";
+            } else {
+                navButton.classList.add("nav-btn--minimized");
+                navContainer.style.display = "none";
+            }
+        });
     }
+
 });
