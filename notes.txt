@@ -1,0 +1,18 @@
+Things to add to footer:
+
+- Twitter
+- Instagram
+- LinkedIn
+- Contact email
+- Logo
+
+Tasks:
++ add down arrow
++ support typing for front page
++ add hover text for languages
++ fix plane movement on resized windows
++ if on desktop, make towers of hanoi an iframe
++ fix logo and favicon
++ reduce spacing of sections on desktop
++ Change font to monospace
++ Add navigation
