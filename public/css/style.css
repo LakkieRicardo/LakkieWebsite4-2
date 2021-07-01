@@ -1,3 +1,5 @@
+/* TODO organize this mess of a stylesheet */
+
 @import url('glitch.css');
 
 ::-webkit-scrollbar, ::-webkit-scrollbar-track {
@@ -78,12 +80,21 @@ header {
     }
 }
 
-@media (min-height: 1000px) {
+@media (min-height: 1500px) {
     section {
         width: 80%;
         margin-left: 10%;
         margin-right: 10%;
         min-height: 50vh;
+    }
+}
+
+@media (min-height: 1000px) and (max-height: 1499px) {
+    section {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        min-height: 75vh;
     }
 }
 
