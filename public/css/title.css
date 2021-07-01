@@ -1,0 +1,46 @@
+.title-text {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(0, -50%);
+}
+
+.title-text span {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 64px;
+}
+
+.title--prefix {
+    color: #219466;
+}
+
+.title--directory {
+    color: #3B8EEA;
+}
+
+.title-down-arrow {
+    font-size: 48px;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    user-select: none;
+}
+
+.title-down-arrow--active {
+    animation: down-arrow-active 1s infinite forwards;
+}
+
+@keyframes down-arrow-active {
+    0% {
+        color: white;
+    }
+    50% {
+        color: black;
+    }
+    100% {
+        color: white;
+    }
+}

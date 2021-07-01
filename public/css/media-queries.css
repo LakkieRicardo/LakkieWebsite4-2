@@ -1,0 +1,61 @@
+@media (min-height: 1500px) {
+    section {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        min-height: 50vh;
+    }
+}
+
+@media (max-height: 1499px) {
+    section {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        min-height: 100vh;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .project-info {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 2;
+    }
+
+    .project-screenshot {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 2;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1199px) {
+
+    .project-info {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
+    }
+
+    .project-screenshot {
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 1;
+        text-align: center;
+    }
+}
+
+/* mobile fixes */
+
+@media (max-width: 900px) {
+    .title-text > span {
+        font-size: 24px;
+    }
+    
+    #ln-logo-extra-text {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+}

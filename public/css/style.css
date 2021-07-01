@@ -1,18 +1,11 @@
 /* TODO organize this mess of a stylesheet */
 
-@import url('glitch.css');
-
-::-webkit-scrollbar, ::-webkit-scrollbar-track {
-    background: black;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #444;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #666;
-}
+@import url('navigation.css');
+@import url('sections-projects.css');
+@import url('media-queries.css');
+@import url('title.css');
+@import url('scrollbar.css');
+@import url('page-cover.css');
 
 body {
     background: url('../res/background-pattern.svg');
@@ -25,81 +18,6 @@ body {
     /* font-family: "Noto Sans", sans-serif; */
     font-family: monospace;
     scroll-behavior: smooth;
-}
-
-header {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
-
-.title-text {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    transform: translate(0, -50%);
-}
-
-.title-text span {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 64px;
-}
-
-.title--prefix {
-    color: #219466;
-}
-
-.title--directory {
-    color: #3B8EEA;
-}
-
-.title-down-arrow {
-    font-size: 48px;
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    user-select: none;
-}
-
-.title-down-arrow--active {
-    animation: down-arrow-active 1s infinite forwards;
-}
-
-@keyframes down-arrow-active {
-    0% {
-        color: white;
-    }
-    50% {
-        color: black;
-    }
-    100% {
-        color: white;
-    }
-}
-
-@media (min-height: 1500px) {
-    section {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-        min-height: 50vh;
-    }
-}
-
-@media (max-height: 1499px) {
-    section {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-        min-height: 100vh;
-    }
-}
-
-section p {
-    font-size: 18px;
 }
 
 .language-carousel-label {
@@ -142,48 +60,6 @@ li.dot.is-selected {
     top: 25px;
 }
 
-.project-content-container {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr;
-    height: 100%;
-    row-gap: 25px;
-}
-
-
-@media (min-width: 1200px) {
-
-    .project-info {
-        grid-column: 1 / span 1;
-        grid-row: 1 / span 2;
-    }
-
-    .project-screenshot {
-        grid-column: 2 / span 1;
-        grid-row: 1 / span 2;
-        text-align: center;
-    }
-}
-
-@media (max-width: 1199px) {
-
-    .project-info {
-        grid-column: 1 / span 2;
-        grid-row: 1 / span 1;
-    }
-
-    .project-screenshot {
-        grid-column: 1 / span 2;
-        grid-row: 2 / span 1;
-        text-align: center;
-    }
-}
-
-.project-screenshot img {
-    width: 900px;
-    max-width: 90%;
-}
-
 #towers-of-hanoi-iframe {
     width: 90%;
     margin-left: 10%;
@@ -191,33 +67,8 @@ li.dot.is-selected {
     min-height: 600px;
 }
 
-figcaption {
-    font-style: italic;
-    letter-spacing: 0.05em;
-}
-
-.projects {
-    position: relative;
-    padding-top: 25px;
-}
-
-.project-link {
-    text-decoration: none;
-    position: absolute;
-    bottom: 10vh;
-    left: 5vw;
-    right: 5vw;
-    background-color: #333;
-    text-align: center;
-    padding: 20px;
-}
-
-footer {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    height: 100vh;
-    padding-top: 25px;
+.lakkienet-logo {
+    user-select: none;
 }
 
 .animated-website-logo {
@@ -237,104 +88,4 @@ footer {
 
 #active-tech-text {
     text-align: center;
-}
-
-.page-cover {
-    background: black;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-}
-
-.page-cover--inactive {
-    animation-name: page-cover-unveal;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-@keyframes page-cover-unveal {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-.lakkienet-logo {
-    user-select: none;
-}
-
-.glitched-canvas-bg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-}
-
-nav {
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    z-index: 5;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    height: 300px;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-nav > div {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 250px;
-    transition-property: width;
-    transition-duration: 0.2s;
-    transition-timing-function: cubic-bezier(0.35, 0.8, 0, 0.95);
-}
-
-nav > div.nav-content--minimized {
-    width:0px;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav li {
-    margin-bottom: 9px;
-    font-size: 18px;
-}
-
-nav button {
-    background: none;
-    cursor: pointer;
-    width: 30px;
-    border: none;
-    text-align: center;
-    margin-left: 10px;
-}
-
-nav button::after {
-    font-size: 16px;
-    content: "\25C0";
-}
-
-nav button.nav-btn--minimized::after {
-    content: "\25B6";
-    font-size: 16px;
-}
-
-nav button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transition: background 0.3s;
 }

@@ -1,0 +1,57 @@
+nav {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+nav > div {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 250px;
+    transition-property: width;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.35, 0.8, 0, 0.95);
+}
+
+nav > div.nav-content--minimized {
+    width:0px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    margin-bottom: 9px;
+    font-size: 18px;
+}
+
+nav button {
+    background: none;
+    cursor: pointer;
+    width: 30px;
+    border: none;
+    text-align: center;
+    margin-left: 10px;
+}
+
+nav button::after {
+    font-size: 16px;
+    content: "\25C0";
+}
+
+nav button.nav-btn--minimized::after {
+    content: "\25B6";
+    font-size: 16px;
+}
+
+nav button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s;
+}

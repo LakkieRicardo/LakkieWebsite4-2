@@ -1,0 +1,51 @@
+footer {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100vh;
+    padding-top: 25px;
+}
+
+figcaption {
+    font-style: italic;
+    letter-spacing: 0.05em;
+}
+
+.projects {
+    position: relative;
+    padding-top: 25px;
+}
+
+.project-link {
+    text-decoration: none;
+    position: absolute;
+    bottom: 10vh;
+    left: 5vw;
+    right: 5vw;
+    background-color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+.project-screenshot img {
+    width: 900px;
+    max-width: 90%;
+}
+
+.project-content-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+    row-gap: 25px;
+}
+
+section p {
+    font-size: 18px;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}

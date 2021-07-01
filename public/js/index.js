@@ -25,22 +25,30 @@ function onIntroSceneCmdProgress(event) {
     return age - 1;
 }
 
+/**
+ * Displays the currently selected carousel item
+ * 
+ * @param {HTMLImageElement} item Image element of the currently selected item. Will be `undefined` if none is selected
+ */
 function setCarouselItemHover(item) {
-    if (item == null)
+    if (item === undefined)
         document.querySelector("#active-tech-text").innerHTML = "&nbsp;";
     else
         document.querySelector("#active-tech-text").innerHTML = item.dataset.hoverText;
 }
 
-function toggleCaouselItemHover(item) {
+/**
+ * Displays the currently selected carousel item. If this is the same as the currently displayed item, will hide
+ * @param {HTMLImageElement} item Image element of the currently selected item 
+ */
+function toggleCarouselItemHover(item) {
     if (document.querySelector("#active-tech-text").innerHTML === "&nbsp;" || document.querySelector("#active-tech-text").innerHTML !== item.dataset.hoverText)
         document.querySelector("#active-tech-text").innerHTML = item.dataset.hoverText;
     else
         document.querySelector("#active-tech-text").innerHTML = "&nbsp;";
 }
 
-window.addEventListener("load", (ev) => {
-
+function init() {
     // Setup nav toggles
     const navContainer = document.querySelector("nav > div");
     const navButton = document.querySelector("nav > button");
@@ -57,21 +65,17 @@ window.addEventListener("load", (ev) => {
         navContainer.classList.add("nav-content--minimized");
     }
 
-    if (isMobile) {
-        document.querySelector("nav").style.display = "none";
-    } else {
-        // Setup minimize functionality
-        
-        navButton.addEventListener("click", () => {
-            if (navButton.classList.contains("nav-btn--minimized")) {
-                showNav();
-                navUserState = true;
-            } else {
-                hideNav();
-                navUserState = false;
-            }
-        });
-    }
+    // Setup navigation minimize functionality
+    
+    navButton.addEventListener("click", () => {
+        if (navButton.classList.contains("nav-btn--minimized")) {
+            showNav();
+            navUserState = true;
+        } else {
+            hideNav();
+            navUserState = false;
+        }
+    });
 
     // Setup title page cursor
     const flashingBlock = document.querySelector(".title--flashing-block");
@@ -82,30 +86,16 @@ window.addEventListener("load", (ev) => {
             flashingBlock.style.background = "none";
     }, 530);
 
-    // Setup title page for mobile
-    if (isMobile) {
-        const titleSpanNodeList = document.querySelectorAll(".title-text span");
-        for (let i = 0; i < titleSpanNodeList.length; i++) {
-            titleSpanNodeList[i].style.fontSize = "24px";
-        }
-        document.querySelector(".title-down-arrow").addEventListener("click", () => {
-            document.querySelector("section.bio").scrollIntoView({ behavior: "smooth" });
-        });
-    }
-
     // Calculate age for bio
     document.querySelector("#age-text").innerHTML = getAge(new Date(2003, 8, 24), new Date());
 
     // Add hover for carousel items
-    const imageNodeList = document.querySelector(".language-carousel").children;
+    const imageNodeList = document.querySelectorAll(".language-carousel img");
     for (let i = 0; i < imageNodeList.length; i++) {
         const image = imageNodeList[i];
-        if (isMobile) {
-            image.addEventListener("click", () => toggleCaouselItemHover(image));
-        } else {
-            image.addEventListener("mouseenter", () => setCarouselItemHover(image));
-            image.addEventListener("mouseleave", () => setCarouselItemHover(null));
-        }
+        image.addEventListener("click", () => toggleCarouselItemHover(image));
+        image.addEventListener("mouseenter", () => setCarouselItemHover(image));
+        image.addEventListener("mouseleave", () => setCarouselItemHover(undefined));
     }
 
     // Create carousel with Flickity
@@ -180,7 +170,7 @@ window.addEventListener("load", (ev) => {
     });
 
     window.addEventListener("resize", (ev) => {
-        planeScene.removeTween(true).setTween(generateAirplaneTween());
+        planeScene.removeTween(false).setTween(generateAirplaneTween());
     });
 
     // Change the towers of hanoi to an iframe if on desktop
@@ -196,13 +186,6 @@ window.addEventListener("load", (ev) => {
     document.querySelector(".page-cover").classList.add("page-cover--inactive");
     setInterval(() => document.querySelector(".page-cover").style.display = "none", 1000);
 
-    // Quick fix for SVG on mobile devices
-    window.addEventListener("resize", () => {
-        if (window.innerWidth < 840) {
-            document.querySelector("#ln-logo-extra-text").style.display = "none";
-        } else {
-            document.querySelector("#ln-logo-extra-text").style.display = "block";
-        }
-    });
+}
 
-});
+window.addEventListener("load", (ev) => init());
