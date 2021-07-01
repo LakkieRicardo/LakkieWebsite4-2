@@ -1,0 +1,2 @@
+# Lakkie Website 4.2
+This is the latest version of the Lakkie.net website, which is hosted [here](https://lakkie.net). Because lakkie.net is part of my portfolio on GitHub, it is open source. Older versions of lakkie.net are not open source and not publicly accessible.
