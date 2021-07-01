@@ -1,6 +1,0 @@
-{
-    "files.watcherExclude": {
-        "**/target": true
-    },
-    "restructuredtext.languageServer.disabled": true
-}
