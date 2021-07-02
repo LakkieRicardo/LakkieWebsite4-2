@@ -1,5 +1,4 @@
 .metals/
 .vscode/
 min/
-minify-compilers/
 node_modules/
